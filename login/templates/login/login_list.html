@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+	Gestión de Accesos
+{% endblock %}
+
+{% block content %}
+	<div class="col-8 mt-5">
+		<center><h1>Bienvenido</h1></center>
+		<form class="form-inline justify-content-center" id="userPasswordForm" method="post" data-url="{% url 'login_url' %}">
+			{% csrf_token %}
+			{% for field in form %}
+				<center><div class="mx-3">
+					{{ field }}
+				</div></center>
+			{% endfor %}
+			<center><button type="button" class=" btn btn-outline-success" id="nextButton">Siguiente</button></center>
+		</form>
+	</div>
+{% endblock %}

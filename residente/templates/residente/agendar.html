@@ -1,0 +1,36 @@
+{% extends 'base2.html' %}
+{% block title %}
+	Agendar visita
+{% endblock %}
+{% block content %}
+	<div class="col-8 mt-5">
+		<center><h1>Rellene el formulario</h1></center>
+		<center><h4>*Todos los campos son requeridos*</h4></center>
+		<form class="form-inline justify-content-center" id="VisitsForm" method="post" data-url="{% url 'agendar' user='confirmo' password='confirmo'%}">
+			{% csrf_token %}
+			{% for field in form %}
+				<center><div class="mx-3">
+					<h4>{{field.name}}: {{ field }}</h4>
+				</div></center>
+			{% endfor %}
+			<center><button type="button" onclick="alertar()" class="btn btn-outline-success" id="nextButton">Siguiente</button></center>
+		</form>
+	</div>
+    {% block script %}
+	<script type="text/javascript">
+		function alertar(){
+			var serializedData = $("#VisitsForm").serialize();
+			console.log(serializedData);
+			$.ajax({
+				url: $("VisitsForm").data('url'),
+				data: serializedData,
+				type: 'post',
+				success: function(response){
+					alert('Añadido exitosamente');
+				}
+			});
+			console.log("formulario enviado");
+		}
+	</script>
+{% endblock %}
+{% endblock %}

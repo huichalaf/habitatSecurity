@@ -1,0 +1,28 @@
+{% extends 'base2.html' %}
+{% block title %}
+	Gestión de Accesos Admin - agenda del dia
+{% endblock %}
+{% block content %}
+	<div>
+		<center><h1>Agenda del día</h1></center>
+		<center><table class='table table-responsive table-bordered'>
+			<caption><h2>Visitas de hoy:</h2></caption>
+			<tr>
+				<th><strong>Id</strong></th>
+				<th><strong>Nombre</strong></th>
+				<th><strong>Apellido</strong></th>
+				<th><strong>Fecha Inicio</strong></th>
+				<th><strong>Fecha Final</strong></th>
+			</tr>
+			{% for reserva in data %}
+				<tr>
+					<td>{{reserva.number}}</td>
+					<td>{{reserva.nombre}}</td>
+					<td>{{reserva.apellido}}</td>
+					<td>{{reserva.fechainicio}}</td>
+					<td>{{reserva.fechafinal}}</td>
+				</tr>
+			{% endfor %}
+		</table></center>
+	</div>
+{% endblock %}

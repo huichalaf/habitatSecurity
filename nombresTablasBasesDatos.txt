@@ -1,0 +1,8 @@
+las tablas de las bases de datos tendrán nombres del tipo:
+"{Direccion}_{nombreLugar}"
+
+por ejemplo, si es un condominio ubicado en bilbao 1546 y se llama soublette, sería:
+"1546_soublette"
+
+cada base de datos tendrá una tabla destinada a cada condominio, a la cual estará asociada un admin
+dicho admín puede acceder a todos los datos de ese edificio

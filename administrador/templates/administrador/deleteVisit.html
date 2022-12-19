@@ -1,0 +1,58 @@
+{% extends 'base2.html' %}
+{% block title %}
+	Gestión de Accesos Admin - eliminarVisita
+{% endblock %}
+{% block content %}
+	<div>
+		<center><h1>Eliminar Visita</h1></center>
+		<center><table class='table table-responsive table-bordered'>
+			<caption><h2>Reservas activas:</h2></caption>
+			<tr>
+				<th><strong>Id</strong></th>
+				<th><strong>Nombre</strong></th>
+				<th><strong>Apellido</strong></th>
+				<th><strong>Fecha Inicio</strong></th>
+				<th><strong>Fecha Final</strong></th>
+			</tr>
+			{% for reserva in data %}
+				<tr>
+					<td>{{reserva.number}}</td>
+					<td>{{reserva.nombre}}</td>
+					<td>{{reserva.apellido}}</td>
+					<td>{{reserva.fechainicio}}</td>
+					<td>{{reserva.fechafinal}}</td>
+				</tr>
+			{% endfor %}
+		</table></center>
+	</div>
+	<div>
+		<h3>Ingrese el id de la visita que desea eliminar: </h3>
+		<form class="form-inline justify-content-center" id="numberForm" method="post" data-url="{% url 'deletevisit' user='confirmo' password='confirmo'%}">
+			{% csrf_token %}
+			{% for field in form %}
+				<div class="mx-3">
+					{{ field }}
+				</div>
+			{% endfor %}
+			<button type="button" onclick="alertar()" class=" btn btn-outline-success" id="nextButton">Siguiente</button>
+		</form>
+	</div>
+    {% block script %}
+	<script type="text/javascript">
+		function alertar(){
+			var serializedData = $("#numberForm").serialize();
+			console.log(serializedData);
+			$.ajax({
+				url: $("numberForm").data('url'),
+				data: serializedData,
+				dataType: 'json',
+				type: 'post',
+				success: function(response){
+					alert('Añadido exitosamente');
+				}
+			});
+			console.log("formulario enviado");
+		}
+	</script>
+{% endblock %}
+{% endblock %}

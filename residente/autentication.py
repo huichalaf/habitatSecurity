@@ -1,10 +1,33 @@
 import mysql.connector
 import os,sys
 import time as tm
+import cv2
+from random import choice
+import qrcode
+from datetime import date
 
 mariadb_conexion = mysql.connector.connect(host='localhost', user='papo', passwd='6pjrQ18auqxVAYw80drvqmpKPdBqc399oV9kÑ-15', auth_plugin='mysql_native_password')
 cursor = mariadb_conexion.cursor()
 print("successfull connection!!!")
+
+def randomCodeGenerator(longitud):
+    valores = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<=>@#%&+"
+
+    p = ""
+    p = p.join([choice(valores) for i in range(longitud)])
+    return p
+
+def generateQr(namePersonHabitante, namePersonVisita):
+
+	fecha = date.today()
+	code = randomCodeGenerator(64)
+	img = qrcode.make(code)
+	with open(f'ORIGINAL_{namePersonHabitante}_{namePersonVisita}_{fecha}.png', "wb") as f:
+		img.save(f)
+		f.close()
+	
+	os.system(f'mv ORIGINAL_{namePersonHabitante}_{namePersonVisita}_{fecha}.png administrador/media/')
+	return code
 
 #accedemos a los datos de las tablas
 def accessTable(database, table, namesColumns): #namesColumns es tipo lista
@@ -86,9 +109,10 @@ def addVisit(user, password, form):
 			if usuarios[i] == user and passwords[i] == password:
 				idUsuario = ids[i]
 
+		code = generateQr(user, form['Nombre'])
 		values = {'ID_VISITA': largoReservaciones,'RUT': form['Rut'],'NOMBRE': form['Nombre'],'APELLIDO': form['Apellido'],
 		'FECHA_INI': form['FechaInicio'],'FECHA_FIN': form['FechaFinal'], 'CODIGO': 1,'CELULAR': form['Celular'],'TIPO': form['Tipo'],
-		'ID_USUARIO': idUsuario,'OBSERVACIONES': form['Observaciones'],'PATENTE': form['Patente']}
+		'ID_USUARIO': idUsuario,'OBSERVACIONES': form['Observaciones'],'PATENTE': form['Patente'], 'CLAVE': code}
 		valuesList = []
 		
 		for i in values.keys():

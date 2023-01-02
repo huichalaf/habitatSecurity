@@ -1,5 +1,5 @@
 import mysql.connector
-import os,sys
+#import os,sys
 from .autenticacion import *
 from datetime import datetime, date, timedelta
 #from qrVerification.qr import *

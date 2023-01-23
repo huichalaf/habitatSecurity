@@ -23,7 +23,9 @@ $(document).ready(function(){
 	$("#nextButton").click(function(){
 		var dataPreCrypted = document.getElementById("userPasswordForm");
 		hashCadena(dataPreCrypted.password.value).then((hex) => dataPreCrypted.password.value = hex);
-		//dataPreCrypted.password.value = hex;
+		//dataPreCrypted.password.value = hex; 
+		console.log(hashCadena("hola"));
+
 		console.log("enviando");
 		setTimeout(() => {
 			console.log(dataPreCrypted.password.value)

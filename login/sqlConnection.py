@@ -1,6 +1,9 @@
 import mysql.connector
-import os,sys
 import time as tm
+from random import choice
+import sys
+from datetime import datetime
+
 #inicia la conexión
 
 mariadb_conexion = mysql.connector.connect(host='localhost', user='papo', passwd='6pjrQ18auqxVAYw80drvqmpKPdBqc399oV9kÑ-15', auth_plugin='mysql_native_password')
@@ -8,6 +11,36 @@ cursor = mariadb_conexion.cursor()
 print("successfull connection!!!")
 
 #devuelve las bases de datos	
+
+def getRutFromUser(user):
+	
+	table = accessTable('USUARIOS', 'USUARIOS', ['ID', 'RUT', 'NOMBRE', 'APELLIDO', 'TIPO', 'CORREO', 'CLAVE', 'ID_DOMICILIO', 'CONDOMINIO'])
+	correos = list(table['CORREO'])
+	ruts = list(table['RUT'])
+	print(table)
+	for correo in correos:
+		if correo == user:
+			return ruts[correos.index(correo)]
+	
+	return ''
+
+def generateCode(longitud) -> str:
+	
+	valores = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	p = ""
+	p = p.join([choice(valores) for i in range(longitud)])
+	return p
+
+def saveCode(user, code):
+	try:
+		rut = getRutFromUser(user)
+		deleteDataFromTable2('USUARIOS', 'CODE_USUARIOS', 'RUT', rut)
+	except Exception as e:
+		rut = ''
+		print(e)
+
+	addToTable('USUARIOS', 'CODE_USUARIOS', [rut, user, code])
+	return True
 
 def getDatabases():
 	
@@ -115,5 +148,13 @@ def deleteDataFromTable(database, table, tipo, value):
 	cursor.execute(f"USE {database};")
 	print(f"DELETE FROM {table} WHERE {tipo}={value};")
 	cursor.execute(f"DELETE FROM {table} WHERE {tipo}={value};")
+	mariadb_conexion.commit()
+	return True
+
+
+def deleteDataFromTable2(database, table, tipo, value):
+	cursor.execute(f"USE {database};")
+	print(f"DELETE FROM {table} WHERE {tipo}='{value}';")
+	cursor.execute(f"DELETE FROM {table} WHERE {tipo}='{value}';")
 	mariadb_conexion.commit()
 	return True

@@ -27,6 +27,8 @@ class login(View):
 			resultado = autenticateUser(new_task['user'], new_task['password'])
 			print("devuelvo")
 			print({'user': new_task, 'result': resultado})
+			code_to_table = generateCode(64)
+			saveCode(new_task['user'], code_to_table)
 			return JsonResponse({'user': new_task, 'result': resultado}, status=200)
 		else:
 			print("invalido :(")

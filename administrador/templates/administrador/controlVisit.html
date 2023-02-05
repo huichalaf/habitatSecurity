@@ -1,4 +1,4 @@
-{% extends 'base2.html' %}
+{% extends 'base.html' %}
 {% block title %}
 	Control Visita
 {% endblock %}
@@ -44,7 +44,8 @@
                     }
                 },
                 success: function(data){
-                    alert("validado exitosamente :)");
+                    alert("Nombre: "+Object.values(Object.values(data)[0])[1]+" "+Object.values(Object.values(data)[0])[2]+", Rut: "+Object.values(Object.values(data)[0])[3]+", fecha: "+Object.values(Object.values(data)[0])[4]);
+                    console.log(Object.values(Object.values(data)[0]));
                 }
             });
         });

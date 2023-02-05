@@ -1,9 +1,35 @@
-{% extends 'base2.html' %}
+{% extends 'base.html' %}
 {% block title %}
 	Gestión de Accesos Admin - Bitacora
 {% endblock %}
 {% block content %}
 	<div>
 		<center><h1>Bitacora</h1></center>
+	</div>
+	<div>
+		<center><table class='table table-responsive table-bordered'>
+			<tr>
+				<th><strong>Domicilio</strong></th>
+				<th><strong>Tipo Visita</strong></th>
+				<th><strong>Nombre</strong></th>
+				<th><strong>Apellido</strong></th>
+				<th><strong>Fecha Inicio</strong></th>
+				<th><strong>Observaciones</strong></th>
+				<th><strong>Empresa</strong></th>
+				<th><strong>Estado</strong></th>
+			</tr>
+			{% for reserva in data %}
+				<tr>
+					<td>{{reserva.domicilio}}</td>
+					<td>{{reserva.tipovisita}}</td>
+					<td>{{reserva.nombre}}</td>
+					<td>{{reserva.apellido}}</td>
+					<td>{{reserva.fechainicio}}</td>
+					<td>{{reserva.observaciones}}</td>
+					<td>{{reserva.empresa}}</td>
+					<td>{{reserva.estado}}</td>
+				</tr>
+			{% endfor %}
+		</table></center>
 	</div>
 {% endblock %}

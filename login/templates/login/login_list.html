@@ -5,15 +5,14 @@
 
 {% block content %}
 	<div class="col-8 mt-5">
-		<center><h1>Bienvenido</h1></center>
+		<center><h1>A vuestro servicio</h1></center>
 		<form class="form-inline justify-content-center" id="userPasswordForm" method="post" data-url="{% url 'login_url' %}">
 			{% csrf_token %}
-			{% for field in form %}
-				<center><div class="mx-3">
-					{{ field }}
-				</div></center>
-			{% endfor %}
-			<center><button type="button" class=" btn btn-outline-success" id="nextButton">Siguiente</button></center>
+			<center>
+			<h2 class="letra-blanca"><font color="#FFFFFF">Usuario: </font>{{form.user}}
+			<font color="#FFFFFF">Contraseña: </font>{{form.password}}</h2>
+			</center>
+			<center><button type="button" class="button_Beauty_login" id="nextButton">SIGUIENTE</button></center>
 		</form>
 	</div>
 {% endblock %}

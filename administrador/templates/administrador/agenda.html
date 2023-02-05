@@ -1,4 +1,4 @@
-{% extends 'base2.html' %}
+{% extends 'base.html' %}
 {% block title %}
 	Gestión de Accesos Admin - agenda del dia
 {% endblock %}
@@ -13,6 +13,9 @@
 				<th><strong>Apellido</strong></th>
 				<th><strong>Fecha Inicio</strong></th>
 				<th><strong>Fecha Final</strong></th>
+				<th><strong>Domicilio</strong></th>
+				<th><strong>Empresa</strong></th>
+				<th><strong>Estado</strong></th>
 			</tr>
 			{% for reserva in data %}
 				<tr>
@@ -21,6 +24,9 @@
 					<td>{{reserva.apellido}}</td>
 					<td>{{reserva.fechainicio}}</td>
 					<td>{{reserva.fechafinal}}</td>
+					<td>{{reserva.id_domicilio}}</td>
+					<td>{{reserva.empresa}}</td>
+					<td>{{reserva.estado}}</td>
 				</tr>
 			{% endfor %}
 		</table></center>

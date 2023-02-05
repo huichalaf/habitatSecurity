@@ -1,12 +1,17 @@
 body{
-    background-color: #e9fc93; 
-    overflow: scroll;
+  background-image: url("{% static "imagenes/fondo_real.jpg" %}");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #FFFFFF;
+  overflow: scroll;
 }
+
 h1 {
-  font: oblique bold 300% cursive;
+  font: oblique bold 300%;
 }
 h2 {
-  font: oblique 150% cursive;
+  font: oblique 150%;
 }
 h3{
   font: bold 140% monospace;
@@ -14,15 +19,24 @@ h3{
 h4{
     font: oblique 140% monospace;
 }
-.finalPagina{
+
+.body-background{
+  background-image: url('{% static "imagenes/fondo_real.jpg" %}');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #FFFFFF;
+  overflow: scroll;
+}
+.inicioPagina{
     position:fixed;
-    bottom:0px;
+    top:0px;
     left:0px;
     padding-left: 0 !important;
     padding-right: 0 !important;
     width: 100%;
-    text-align: center;
-    background-color: lightblue;
+    text-align: left;
+    background-color: rgb(66, 176, 212);
 }
 .button_Beauty{
     position: inherit;
@@ -41,6 +55,26 @@ h4{
     color: #1883ba;
     background-color: #ffffff;
   }
+
+.button_Beauty_login{
+    width: 500px;
+    position: inherit;
+    text-decoration: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50 !important;
+    padding-right: 100 !important;
+    font-weight: 600;
+    font-size: 30px;
+    color: #eff5ed;
+    background-color: #5fe744;
+    border-radius: 16px;
+    border: 2px solid #71e74d;
+}
+.button_Beauty_login:hover{
+    color: #40db5a;
+    background-color: #ffffff;
+}
 
 .button_Beauty2{
     position: inherit;

@@ -1,2 +1,4 @@
 administrador/media/
+administrador/migrations/
+residente/migrations/
 .token

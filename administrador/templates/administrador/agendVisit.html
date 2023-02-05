@@ -1,12 +1,13 @@
-{% extends 'base2.html' %}
+{% extends 'base.html' %}
 {% block title %}
 	Agendar visita
 {% endblock %}
 {% block content %}
 	<div class="col-8 mt-5">
 		<center><h1>Rellene el formulario</h1></center>
-		<center><h4>*Todos los campos son requeridos*</h4></center>
-		<form class="form-inline justify-content-center" id="VisitsForm" method="post" data-url="{% url 'agendarAdmin' user='confirmo' password='confirmo'%}">
+		<center><h4>*Campos opcionales: Empresa, Observaciones, Patente*</h4></center>
+		<center><h4>*Tipo visita: 1 familiar, 2 empresa, 3 otro*</h4></center>
+		<form class="form-inline justify-content-center" id="VisitsForm" method="post" data-url="{% url 'agendarAdmin' %}">
 			{% csrf_token %}
 			{% for field in form %}
 				<center><div class="mx-3">
@@ -20,6 +21,8 @@
 	<script type="text/javascript">
 		function alertar(){
 			var serializedData = $("#VisitsForm").serialize();
+			let opcion = confirm("Está seguro/a que desea crear una visita, a nombre de "+$("#VisitsForm")[0].elements.Nombre.value+" "+$("#VisitsForm")[0].elements.Apellido.value);
+			if (opcion == false) return 0;
 			console.log(serializedData);
 			$.ajax({
 				url: $("VisitsForm").data('url'),
@@ -27,6 +30,17 @@
 				type: 'post',
 				success: function(response){
 					alert('Añadido exitosamente');
+				},
+				error: function(data){
+					if(data.status==500){
+						alert("error interno del servidor");
+					}
+					if(data.status==417){
+						alert("Debes completar todas las casillas obligatorias del formulario");
+					}
+					if(data.status==412){
+						alert("Debes ingresar una fecha válida(no previa al día actual)")
+					}
 				}
 			});
 			console.log("formulario enviado");

@@ -1,0 +1,17 @@
+.button_Beauty{
+    position: inherit;
+    text-decoration: none;
+    padding: 20px;
+    padding-left: 100 !important;
+    padding-right: 100 !important;
+    font-weight: 600;
+    font-size: 20px;
+    color: #5cd12e;
+    background-color: #1883ba;
+    border-radius: 16px;
+    border: 2px solid #0016b0;
+}
+.button_Beauty:hover{
+    color: #1883ba;
+    background-color: #ffffff;
+  }

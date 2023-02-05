@@ -1,5 +1,5 @@
 import os, sys
-from .sqlConnection import *
+from sqlConnect import *
 
 def CreateUser(rut, nombre, apellido, tipo, user, password, id_domicilio):
 
@@ -34,14 +34,3 @@ def existUser(user):
 		return True
 	else:
 		return False
-
-def autenticateUser(user, password):
-
-	data = accessTable('USUARIOS', 'USUARIOS', ['ID', 'RUT', 'NOMBRE', 'APELLIDO', 'TIPO', 'CORREO', 'CLAVE', 'ID_DOMICILIO', 'CONDOMINIO'])
-	usuarios = list(data['CORREO'])
-	passwords = list(data['CLAVE'])
-	tipo = list(data['TIPO'])
-	for i in range(len(usuarios)):
-		if usuarios[i] == user and passwords[i] == password:
-			return tipo[i]
-	return False

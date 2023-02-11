@@ -4,43 +4,13 @@
 {% endblock %}
 {% block content %}
 	<div>
-		<center><h1>Bienvenido Administador</h1></center>
+		<center><h1 class = "h1_admin">Bienvenido Administador</h1></center>
 	</div>
 	<div>
-    	<center><button onclick="aVisita()" class="button_Beauty" id="Avisita">Agendar Visita</button></center>
-    	<center><button onclick="cVisita()" class="button_Beauty" id="Cvisita">Eliminar Visita</button></center>
-    	<center><button onclick="agenda()" class="button_Beauty" id="Agenda">Agenda Del Día</button></center>
-    	<center><button onclick="bitacora()" class="button_Beauty" id="Bitacora">Bitacoras</button></center>
-    	<center><button onclick="qrControl()" class="button_Beauty" id="qrControl">Control Visitas</button></center>
+    	<center><button onclick="aVisita_admin()" class="button_Beauty" id="Avisita">Agendar Visita</button></center>
+    	<center><button onclick="cVisita_admin()" class="button_Beauty" id="Cvisita">Eliminar Visita</button></center>
+    	<center><button onclick="agenda_admin()" class="button_Beauty" id="Agenda">Agenda Del Día</button></center>
+    	<center><button onclick="bitacora_admin()" class="button_Beauty" id="Bitacora">Bitacoras</button></center>
+    	<center><button onclick="qrControl_admin()" class="button_Beauty" id="qrControl">Control Visitas</button></center>
 	</div>
-	<script type="text/javascript">
-		function aVisita(){
-			console.log("redireccionando a añadir visita");
-			window.location.assign(window.location+"agendVisit/")
-		}
-		function cVisita(){
-			console.log("redireccionando a eliminar visita");
-			window.location.assign(window.location+"deleteVisit/")
-		}
-		function estacionamiento(){
-			console.log("redireccionando a estacionamiento");
-			window.location.assign(window.location+"parking/")
-		}
-		function agenda(){
-			console.log("redireccionando a agenda");
-			window.location.assign(window.location+"agenda/")
-		}
-		function bitacora(){
-			console.log("redireccionando a bitacora");
-			window.location.assign(window.location+"bitacora/")
-		}
-		function configuracion(){
-			console.log("redireccionando a configuracion");
-			window.location.assign(window.location+"configuracion/")
-		}
-		function qrControl(){
-			console.log("redireccionando a ControlVisitas");
-			window.location.assign(window.location+"controlVisit/")
-		}
-	</script>
 {% endblock %}

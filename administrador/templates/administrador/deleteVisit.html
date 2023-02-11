@@ -21,7 +21,7 @@
 					<td>{{reserva.apellido}}</td>
 					<td>{{reserva.fechainicio}}</td>
 					<td>{{reserva.fechafinal}}</td>
-					<td><button type="button" onclick="alertar({{reserva.number}})" class=" btn btn-outline-success" id="borrarButton">Borrar</button></td>
+					<td><button type="button" onclick="alertar_delete_admin({{reserva.number}})" class=" btn btn-outline-success" id="borrarButton">Borrar</button></td>
 				</tr>
 			{% endfor %}
 		</table></center>
@@ -29,28 +29,4 @@
 	<form class="form-inline justify-content-center" id="numberForm" method="post" data-url="{% url 'deletevisit' %}">
 		{% csrf_token %}
 	</form>
-    {% block script %}
-	<script type="text/javascript">
-
-		function alertar(number){
-			let opcion = confirm("estas seguro que deseas eliminar esta visita? (id "+number+")");
-			if (opcion == false) return 0;
-			var serializedData = $("#numberForm").serialize();
-			console.log(serializedData);
-			$.ajax({
-				url: $("numberForm").data('url'),
-				data: serializedData+'&Number='+number,
-				dataType: 'json',
-				type: 'post',
-				success: function(response){
-					alert('Eliminado exitosamente');
-				},
-				error: function(data){
-					alert("error")
-				}
-			});
-			console.log("formulario enviado");
-		}
-	</script>
-{% endblock %}
-{% endblock %}
+    {% endblock %}

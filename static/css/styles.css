@@ -1,13 +1,22 @@
 body{
-  background-image: url("{% static "imagenes/fondo_real.jpg" %}");
+  background-image: url(../imagenes/fondo_real.jpeg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
-  color: #FFFFFF;
-  overflow: scroll;
 }
 
 h1 {
+  font: oblique bold 300%;
+}
+.h1_admin{
+  font: oblique bold 300%;
+  color: #FFFFFF;
+}
+.h1_login{
+  margin-left: 13%;
   font: oblique bold 300%;
 }
 h2 {
@@ -20,14 +29,6 @@ h4{
     font: oblique 140% monospace;
 }
 
-.body-background{
-  background-image: url('{% static "imagenes/fondo_real.jpg" %}');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  color: #FFFFFF;
-  overflow: scroll;
-}
 .inicioPagina{
     position:fixed;
     top:0px;
@@ -36,7 +37,19 @@ h4{
     padding-right: 0 !important;
     width: 100%;
     text-align: left;
-    background-color: rgb(66, 176, 212);
+    height: 10%;
+    background-color: rgb(234, 243, 247);
+}
+.finPagina{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 100%;
+  text-align: center;
+  height: 8%;
+  background-color: #ffffff;
 }
 .button_Beauty{
     position: inherit;
@@ -113,4 +126,8 @@ td {
     border-top: 1px solid transparent;
 }
 
+.login{
+    position: center;
+    margin-top: 7%;
+}
 tr:hover td { background: #d0dafd; color: #339; }

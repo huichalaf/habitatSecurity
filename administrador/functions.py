@@ -82,9 +82,7 @@ def addVisit(user, password, form):
 
 	condominio = getCondominioByUser(user, password)
 	reservacionesExistentes = getReservationsByUser(user, password)
-	largoReservaciones = 0
-	for i in range(len(reservacionesExistentes)):
-		largoReservaciones+=1
+	largoReservaciones = len(reservacionesExistentes)
 	data = accessTable('USUARIOS', 'USUARIOS', ['ID', 'RUT', 'NOMBRE', 'APELLIDO', 'TIPO', 'CORREO', 'CLAVE', 'ID_DOMICILIO'])
 	
 	usuarios = list(data['CORREO'])

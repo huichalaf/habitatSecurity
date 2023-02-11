@@ -13,37 +13,7 @@
 					<h4>{{field.name}}: {{ field }}</h4>
 				</div></center>
 			{% endfor %}
-			<center><button type="button" onclick="alertar()" class="btn btn-outline-success" id="nextButton">Siguiente</button></center>
+			<center><button type="button" onclick="alertarResidente()" class="btn btn-outline-success" id="nextButton">Siguiente</button></center>
 		</form>
 	</div>
-    {% block script %}
-	<script type="text/javascript">
-		function alertar(){
-			var serializedData = $("#VisitsForm").serialize();
-			console.log(serializedData);
-			let opcion = confirm("Está seguro/a que desea crear una visita, a nombre de "+$("#VisitsForm")[0].elements.Nombre.value+" "+$("#VisitsForm")[0].elements.Apellido.value);
-			if (opcion == false) return 0;
-			$.ajax({
-				url: $("VisitsForm").data('url'),
-				data: serializedData,
-				type: 'post',
-				success: function(response){
-					alert('Añadido exitosamente');
-				},
-				error: function(data){
-					if(data.status==500){
-						alert("error interno del servidor");
-					}
-					if(data.status==417){
-						alert("Debes completar todas las casillas obligatorias del formulario");
-					}
-					if(data.status==412){
-						alert("Debes ingresar una fecha válida(no previa al día actual)")
-					}
-				}
-			});
-			console.log("formulario enviado");
-		}
-	</script>
-{% endblock %}
 {% endblock %}

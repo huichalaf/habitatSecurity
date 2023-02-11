@@ -2,3 +2,6 @@ administrador/media/
 administrador/migrations/
 residente/migrations/
 .token
+login/migrations/
+esp32/ftpServer/ftp.log
+esp32/ftpServer/*.jpg

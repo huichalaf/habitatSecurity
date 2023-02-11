@@ -46,6 +46,7 @@ class newVisit(View):
 		if form.is_valid():
 			new_task = form.save()
 			print('formulario: \n',model_to_dict(new_task))
+			if verifyForm(model_to_dict(new_task)) == False: return JsonResponse({'form': model_to_dict(new_task)}, status=406)
 			if model_to_dict(new_task)['FechaInicio'] < date.today() or model_to_dict(new_task)['FechaInicio'] > model_to_dict(new_task)['FechaFinal']: return JsonResponse({'form': model_to_dict(new_task)}, status=412)
 			try:
 				addVisit(user, password, model_to_dict(new_task))

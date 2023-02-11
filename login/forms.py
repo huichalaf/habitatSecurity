@@ -6,6 +6,6 @@ class UsersForm(forms.ModelForm):
         model = Users
         fields = ['user', 'password']
         widgets = {
-        'user': forms.TextInput(attrs={'class': 'form-control'}),
-        'password': forms.PasswordInput(),
+        'user': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Usuario'}),
+        'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Contraseña'}),
     }

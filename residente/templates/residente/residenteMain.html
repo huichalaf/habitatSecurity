@@ -5,18 +5,7 @@
 {% block content %}
 	<center><h1>Bienvenido residente</h1></center>
 	<div>
-		<center><button type="button" onclick="deleteVisitButton()" id="deleteVisit" class="button_Beauty">Eliminar visita</button></center>
-		<center><button type="button" onclick="addVisitButton()" id="addVisit" class="button_Beauty">Agendar visita</button></center>
+		<center><button type="button" onclick="deleteVisitButtonResidente()" id="deleteVisit" class="button_Beauty">Eliminar visita</button></center>
+		<center><button type="button" onclick="addVisitButtonResidente()" id="addVisit" class="button_Beauty">Agendar visita</button></center>
 	</div>
-	<script type="text/javascript">
-		function deleteVisitButton(){
-			console.log("redireccionando a eliminar visita");
-			window.location.assign(window.location+"deleteVisit")
-		}
-
-		function addVisitButton(){
-			console.log("redireccionando a agregar visita");
-			window.location.assign(window.location+"agendVisit")
-		}
-	</script>
 {% endblock %}

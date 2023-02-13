@@ -106,8 +106,8 @@ def main():
     handler = FTPHandler
     handler.authorizer = authorizer
 
-    handler.masquerade_address = '179.60.70.219'
-    handler.passive_ports = range(60000, 65535)
+    #handler.masquerade_address = '179.60.70.219'
+    #handler.passive_ports = range(60000, 65535)
 
     server = FTPServer(("192.168.1.18", 21), handler)
     print("ready")

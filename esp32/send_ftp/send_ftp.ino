@@ -207,6 +207,7 @@ void setup() {
 
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
+  digitalWrite(4, HIGH);
 
   initCamera();
 
@@ -215,12 +216,11 @@ void setup() {
 
   ftp.OpenConnection();
   timeClient.update();
-  digitalWrite(4, HIGH);
   takePhoto();
-  digitalWrite(4, LOW);
   delay(100);
   ftp.OpenConnection();
   get_data();
+  digitalWrite(4, LOW);
 }
 
 void loop() {

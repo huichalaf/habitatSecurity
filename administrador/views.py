@@ -159,7 +159,7 @@ class deleteVisit(View):
 		password = getPasswordWithToken(user, token)
 		form = DeleteVisitForm()
 		if autenticateUserAdmin(user, token):
-			data = getReservationsByUser(user, password)
+			data = getReservationsByUserAdmin(user, password)
 			print(data)
 			return render(request, 'administrador/deleteVisit.html', context = {'data': data, 'form': form})
 		else: return HttpResponse(errorMessage)

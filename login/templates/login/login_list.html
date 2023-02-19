@@ -7,10 +7,13 @@
 	<div class="login">
 		<form class="form-inline justify-content-center" id="userPasswordForm" method="post" data-url="{% url 'login_url' %}">
 			{% csrf_token %}
-			<center>
-			<h2 class="letra-blanca">{{form.user}}{{form.password}}</h2>
-			</center>
-			<center><button type="button" class="button_Beauty_login" id="nextButton">SIGUIENTE</button></center>
+			<div class="login_container">
+				<center><h2 class="letraBlanca2">Ingrese Usuario</h2></center>
+				<center><h2 class="letraBlanca">{{form.user}}</h2></center>
+				<center><h2 class="letraBlanca2">Ingrese Contraseña</h2></center>
+				<center><h2 class="letraBlanca">{{form.password}}</h2></center>
+				<center><button type="button" class="button_Beauty_login" id="nextButton">SIGUIENTE</button></center>
+			</div>
 		</form>
 	</div>
 {% endblock %}

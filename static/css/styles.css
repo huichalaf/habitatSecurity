@@ -1,15 +1,60 @@
 body{
-  background-image: url(../imagenes/fondo_real.jpeg);
+  position: relative;
+  background-image: url(../imagenes/fondo_.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5); /* Color semitransparente */
+  z-index: 1; /* Colocar por encima de la imagen de fondo */
 }
 
+.habitat{
+  color: #14802b;
+}
+.security{
+  color: #ff0000;
+}
+.titulo{
+  margin-left: 13%;
+  padding-top: 0%;
+  font-size: 250%;
+}
+
+.logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: auto;
+  padding: 0px;
+  box-sizing: border-box;
+  z-index: 999;
+  font-size: 300%;
+}
+.qr_logo{
+  position: fixed;
+  top: 0;
+  right: 0;
+  max-width: 100%;
+  height: auto;
+  padding: 0px;
+  box-sizing: border-box;
+  z-index: 999;
+  font-size: 300%;
+}
 h1 {
-  font: oblique bold 300%;
+  font: oblique bold 400%;
 }
 .h1_admin{
   font: oblique bold 300%;
@@ -29,16 +74,44 @@ h4{
     font: oblique 140% monospace;
 }
 
+.letraBlanca{
+  color: #FFFFFF;
+  margin-right: 0px;
+  font-size: 150%;
+}
+.letraBlanca2{
+  color: #dba260;
+  margin-right: 0px;
+  font-size: 200%;
+}
+.oscurecer-img{
+  filter: brightness(50%);
+}
+.aclarar-img{
+  filter: brightness(150%);
+}
+.login_container{
+  position: relative;
+  margin-top: 0%;
+  max-width: 100%;
+  height: auto;
+  float:right;
+  margin-left: auto;
+  z-index: 999;
+  font-size: 100%;
+  padding-right: 10%;
+}
 .inicioPagina{
-    position:fixed;
+    position: fixed;
     top:0px;
     left:0px;
     padding-left: 0 !important;
     padding-right: 0 !important;
     width: 100%;
+    min-height: 100px;
     text-align: left;
-    height: 10%;
-    background-color: rgb(234, 243, 247);
+    height: 12%;
+    background-color: rgb(129, 207, 139);
 }
 .finPagina{
   position: fixed;
@@ -49,7 +122,6 @@ h4{
   width: 100%;
   text-align: center;
   height: 8%;
-  background-color: #ffffff;
 }
 .button_Beauty{
     position: inherit;
@@ -80,12 +152,12 @@ h4{
     font-weight: 600;
     font-size: 30px;
     color: #eff5ed;
-    background-color: #5fe744;
+    background-color: #289213;
     border-radius: 16px;
     border: 2px solid #71e74d;
 }
 .button_Beauty_login:hover{
-    color: #40db5a;
+    color: #118524;
     background-color: #ffffff;
 }
 

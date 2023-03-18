@@ -14,13 +14,13 @@
 
 	</title>
 </head>
-	<div class="inicioPagina">
-		<img src="{% static "imagenes/logo.jpeg" %}" class="logo" width="10%" height="10%" alt="Logo" style="position:absolute; top:0; left:0;">
-		<img src="{% static "imagenes/qr.png" %}" class="qr_logo" width="6%" height="6%" alt="Logo" style="position:absolute; top:0; right:0;">
-		<h1 class="titulo"><span class="habitat">Habitat</span><span class="security">Security</span></h1></div>
-	</div>
+<div class="inicioPagina">
+	<img src="{% static "imagenes/logo.jpeg" %}">
+	<h1 class="titulo"><span class="habitat">Habitat</span><span class="security">Security</span></h1></div>
+</div>
+<body>
 	<div class="container">
-		<center><h1 style="padding-top: 5%; color: #FFFFFF; font-size: 350%;">¡Bienvenido!</h1></center>
+		<center><h1 style="padding-top: 2%; color: #FFFFFF; font-size: 350%;">¡Bienvenido!</h1></center>
 		{% block content %}
 
 		{% endblock %}

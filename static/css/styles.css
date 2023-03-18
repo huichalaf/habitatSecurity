@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body{
   position: relative;
   background-image: url(../imagenes/fondo_.jpg);
@@ -26,35 +31,14 @@ body{
   color: #ff0000;
 }
 .titulo{
-  margin-left: 13%;
-  padding-top: 0%;
+  margin-left: 5%;
+  padding-top: 2%;
   font-size: 250%;
 }
 
-.logo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  max-width: 100%;
-  height: auto;
-  padding: 0px;
-  box-sizing: border-box;
-  z-index: 999;
-  font-size: 300%;
-}
-.qr_logo{
-  position: fixed;
-  top: 0;
-  right: 0;
-  max-width: 100%;
-  height: auto;
-  padding: 0px;
-  box-sizing: border-box;
-  z-index: 999;
-  font-size: 300%;
-}
 h1 {
   font: oblique bold 400%;
+  color: #FFFFFF
 }
 .h1_admin{
   font: oblique bold 300%;
@@ -66,12 +50,15 @@ h1 {
 }
 h2 {
   font: oblique 150%;
+  color: #FFFFFF;
 }
 h3{
   font: bold 140% monospace;
+  color: #FFFFFF;
 }
 h4{
     font: oblique 140% monospace;
+    color: #FFFFFF;
 }
 
 .letraBlanca{
@@ -102,16 +89,20 @@ h4{
   padding-right: 10%;
 }
 .inicioPagina{
-    position: fixed;
-    top:0px;
-    left:0px;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    width: 100%;
-    min-height: 100px;
-    text-align: left;
-    height: 12%;
-    background-color: rgb(129, 207, 139);
+  display: flex;
+  position: relative;
+  /*top:0px;
+  left:0px;*/
+  padding-left: 0 ;
+  padding-right: 0 ;
+  width: 100%;
+  text-align: left;
+  height: auto;
+  background-color: rgb(129, 207, 139);
+}
+.inicioPagina img{
+  height: 100%;
+  max-height: 100px;
 }
 .finPagina{
   position: fixed;
@@ -157,7 +148,7 @@ h4{
     border: 2px solid #71e74d;
 }
 .button_Beauty_login:hover{
-    color: #118524;
+    color: #1c9430;
     background-color: #ffffff;
 }
 

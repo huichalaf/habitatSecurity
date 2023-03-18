@@ -14,15 +14,19 @@
 
 	</title>
 </head>
+<div class="inicioPagina">
+	<img src="{% static "imagenes/logo.jpeg" %}">
+	<h1 class="titulo"><span class="habitat">Habitat</span><span class="security">Security</span></h1></div>
+</div>
 <body>
-	<img src="/src/static/logo.jpeg" alt="Logo" style="position:absolute; top:0; right:0;">
 	<div class="container">
 		{% block content %}
 
 		{% endblock %}
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="{% static 'js/script.js'%}"></script>
+	<script  src="{% static 'js/script_residente.js'%}"></script>
+	<script  src="{% static 'js/script_admin.js'%}"></script>
 </body>
 </html>
